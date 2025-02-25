@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +10,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomePage()
+    );
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
 
   void decrement() {
     print("Decrementado");
@@ -24,7 +33,7 @@ class HomePage extends StatelessWidget {
   void increment() {
     print("Incrementando");
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +59,11 @@ class HomePage extends StatelessWidget {
             ),
             Text(
               '0',
-              style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white),
+              style: TextStyle(
+                fontSize: 100,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: 20), // Espaço entre o contador e os botões
             Row(
@@ -103,4 +116,9 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
 }
+
+
+
+

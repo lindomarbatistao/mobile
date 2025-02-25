@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:untitled4/row.dart';
+
+class ColumnPage extends StatelessWidget {
+  const ColumnPage  ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title:Text('Tela de Organização Column')),
+        body: Container(
+          width: double.infinity,
+
+          height: double.infinity,
+          color: Colors.grey,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+
+              children: [
+                Container(
+                  width:50,
+                  height: 50,
+                  color:Colors.amber
+                ),
+                Container(
+                    width:50,
+                    height: 50,
+                    color:Colors.blue
+                ),
+                Container(
+                    width:50,
+                    height: 50,
+                    color:Colors.green
+                ),
+                ElevatedButton(onPressed: (){
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => RowPage()));
+
+
+                }, child: Text('Row Page'))
+              ],
+          )
+        )
+
+    );
+  }
+}

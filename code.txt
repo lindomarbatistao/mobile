@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled4/organizacao.dart';
 
 void main() {
   runApp(const MyApp());
@@ -117,8 +118,13 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
+
               ],
             ),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ColumnPage()));
+
+            }, child: Text('Outra tela'))
           ],
         ),
       ),

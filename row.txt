@@ -28,6 +28,21 @@ class RowPage extends StatelessWidget {
                     ),
                     controller: usuario,
                   ),
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        hintText: "insira sua senha",
+
+                        border:OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color:Colors.yellow,
+
+                              width: 5.0,
+                            )
+                        )
+                    ),
+                    controller: senha,
+                  ),
               Container(
               width: 200,
               height: 200,
@@ -54,11 +69,10 @@ class RowPage extends StatelessWidget {
 
                 ],
             ),
+            ),
+                  ElevatedButton(onPressed: (){
 
-
-
-
-            )
+                  }, child: Text('Fazer Login'))
             ]
       )
 

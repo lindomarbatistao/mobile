@@ -1,0 +1,99 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp ({super.key});
+
+  @override
+  Widget build (BuildContext context){
+    return MaterialApp(
+        home: HomePage()
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  void decrement(){
+    print("Decrementado");
+  }
+
+  void increment(){
+    print("Incrementando");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200], // Mudando a cor de fundo
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Pode entrar',
+            style: TextStyle(
+              fontSize: 45,
+              color: Colors.deepPurple,
+              letterSpacing: 5,
+            ),
+          ),
+          Text(
+            '0',
+            style: TextStyle(
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20), // Espaço entre o contador e os botões
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Botão "Saiu"
+              ElevatedButton(
+                onPressed: decrement,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red, // Cor de fundo
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15), // Padding para aumentar o botão
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Bordas arredondadas
+                  ),
+                ),
+                child: Text(
+                  'Saiu',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(width: 20), // Espaço entre os botões
+              // Botão "Entrou"
+              ElevatedButton(
+                onPressed: increment,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green, // Cor de fundo
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15), // Padding para aumentar o botão
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Bordas arredondadas
+                  ),
+                ),
+                child: Text(
+                  'Entrou',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -25,15 +25,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int cont = 0;
 
   void decrement() {
-    print("Decrementado");
+    setState(() {
+      cont--;
+    });
   }
 
   void increment() {
-    print("Incrementando");
+    setState(() {
+      cont++;
+    });
   }
-  
+
+  bool get isEmpty => cont == 0;
+  bool get isFull => cont == 20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Pode entrar',
+              isFull ? 'Lotado' : 'Pode entrar',
               style: TextStyle(
                 fontSize: 60,
                 color: Colors.yellow,
@@ -58,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Text(
-              '0',
+              '$cont',
               style: TextStyle(
                 fontSize: 100,
                 fontWeight: FontWeight.bold,
@@ -70,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: decrement,
+                  onPressed: isEmpty ? null : decrement,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     // Cor de fundo
@@ -91,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(width: 30), // Espaço entre os botões
                 // Botão "Entrou"
                 ElevatedButton(
-                  onPressed: increment,
+                  onPressed: isFull ? null : increment,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     // Cor de fundo
